@@ -1,5 +1,5 @@
 /* 
-    SafeText 1.0.3 by Spentify, 30.12.2020 
+    SafeText 1.1 by Spentify, 30.12.2020 
     No copyright! Free to use for everybody.
 */
 
@@ -65,8 +65,7 @@ let SafeText = {
             }
         }
         if (chars.length <= this.__threshold) {
-            this.__threshold = chars.length - 1;
-            console.log("SafeText.threshold can't be greater than the amont of individual characters in the string to be encrypted. For further information, call SafeText.help()");
+            console.warn("SafeText.threshold can't be greater than the amont of individual characters in the string to be encrypted. For further information, call SafeText.help().");
         }
         for (let i2 = 0; i2 < this.threshold; i2++) {
             let randomValue = randomVal();

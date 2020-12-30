@@ -7,6 +7,9 @@ let SafeText = {
         return this.__range;
     },
     set range(s) {
+        if (s > 65000) {
+            throw new RangeError("Maximum range is 65000.");
+        }
         this.__range[1] = s + 33;
     },
     __threshold: 5,
@@ -14,9 +17,15 @@ let SafeText = {
         return this.__threshold;
     },
     set threshold(s) {
+        if (s > 200) {
+            console.warn("Caution: A treshhold above 200 is not recommended.");
+        }
         this.__threshold = s;
     },
     encrypt(str) {
+        if (typeof str == undefined || str == "") {
+            throw new SyntaxError("1 parameter required: (string). Note: Empty strings are invalid.");
+        }
         let chars = [],
         usedChars = [],
         changedChars = [],
@@ -71,6 +80,12 @@ let SafeText = {
         return {text: str, key: JSON.stringify(keyData)};
     },
     decrypt(str, key) {
+        if (typeof str == undefined) {
+            throw new SyntaxError("2 parameters required: (encryped string, JSON decryption key)");
+        }
+        if (typeof key == undefined) {
+            throw new TypeError("Decryption key required.");
+        }
         let chars = [],
         keys = JSON.parse(key);
         for (let i in str) {

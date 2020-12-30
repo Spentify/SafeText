@@ -1,10 +1,10 @@
 /* 
-    SafeText 1.0.2 by Spentify, 30.12.2020 
+    SafeText 1.0.3 by Spentify, 30.12.2020 
     No copyright! Free to use for everybody.
 */
 
 
-const SafeText = {
+let SafeText = {
     help() {
         console.log("--SafeText Usage-- \n\n \t functions: \n \t\t\t SafeText.encrypt(string) -> returns and object, containing the encrypted string. Properties: object.text => encrypted text, object.key => JSON key for decrypting. \n \t\t\t SafeText.decrypt(string, key) -> returns a decrypted string. \n\n \t Properties: \n \t\t\t SafeText.threshold -> pre-encryption string shuffle treshhold. Default: 5 NOTE: THIS MUST BE SMALLER THAN THE AMOUNT OF INDIVIDUAL CHARACTERS IN THE STRING TO BE ENCRYPTED \n \t\t\t SafeText.range -> sets the range of random UTF-8 characters to be used for encryption. Default: 15000");
     },
